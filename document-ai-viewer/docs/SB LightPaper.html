@@ -1,12 +1,256 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>SB LightPaper</title>
+  <meta charset="UTF-8" />
+  <title>Seedbase Light Paper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Claude-like typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-muted: #f7f7f8;
+      --bg-hover: #f1f1f3;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* ===== Sticky Header ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .brand img {
+      height: 28px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .header-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      background: var(--bg-muted);
+      transition: background 0.15s ease;
+    }
+
+    .header-btn:hover {
+      background: var(--bg-hover);
+    }
+
+    .header-btn i {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== Layout ===== */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 80px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    /* ===== Accordion ===== */
+    .accordion {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      cursor: pointer;
+      background: var(--bg-muted);
+    }
+
+    .accordion-header:hover {
+      background: var(--bg-hover);
+    }
+
+    .accordion-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .accordion-title i {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 18px;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .accordion.open .accordion-content {
+      padding: 16px 18px 20px;
+      max-height: 2000px;
+    }
+
+    .accordion-chevron {
+      transition: transform 0.2s ease;
+    }
+
+    .accordion.open .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* ===== Footer spacing ===== */
+    footer {
+      margin-top: 60px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Welcome to SB LightPaper</h1>
-    <p>This is the updated content for the SB LightPaper document.</p>
-    <script>
-        console.log('This is a sample script.');
-    </script>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="../Sblogo.svg" alt="Seedbase logo">
+      <span>Seedbase Light Paper</span>
+    </div>
+
+    <div class="header-actions">
+      <a href="../SBLightpaper.docx" download class="header-btn">
+        <i data-lucide="download"></i>
+        DOCX
+      </a>
+      <a href="https://app.seedbase.network" class="header-btn">
+        <i data-lucide="arrow-left"></i>
+        Back to App
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>Seedbase Light Paper</h1>
+  <p class="subtitle">
+    A network for committed generosity — transparent, accountable, and compounding.
+  </p>
+
+  <!-- Accordion Example -->
+  <div class="accordion">
+    <div class="accordion-header">
+      <div class="accordion-title">
+        <i data-lucide="sprout"></i>
+        What is Seedbase?
+      </div>
+      <i data-lucide="chevron-down" class="accordion-chevron"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        Seedbase is a social impact network that transforms long-term generosity into measurable,
+        visible, and accountable real-world outcomes.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">
+      <div class="accordion-title">
+        <i data-lucide="lock"></i>
+        Committed Generosity
+      </div>
+      <i data-lucide="chevron-down" class="accordion-chevron"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        Commit capital for a defined period. Capital stays intact. Growth funds impact.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Seedbase · Document AI Viewer
+  </footer>
+</main>
+
+<!-- Lucide -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+
 </body>
 </html>
