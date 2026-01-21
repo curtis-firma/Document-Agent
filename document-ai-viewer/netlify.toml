@@ -1,24 +1,17 @@
 # Netlify configuration for Document AI Viewer
-
 [build]
-  base = "document-ai-viewer"
   publish = "."
   functions = "netlify/functions"
 
 [[headers]]
-  # Apply headers to all HTML files
   for = "/*"
   [headers.values]
-    # Security headers
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
-    
-    # Enable caching for better performance
     Cache-Control = "public, max-age=3600"
 
 [[headers]]
-  # Longer cache for static assets
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=86400"
